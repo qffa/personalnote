@@ -25,7 +25,7 @@
 -w /etc/security/opasswd -p rwxa -k Linux_audit_opasswd
 -w /etc/sudoers -p rwxa -k Linux_audit_sudoers
 -w /etc/sudoers.d -p rwxa -k Linux_audit_sudoers
--e 2
+-e 2  #rule不可以被更改，除非重启
 ```
 
 ## 命令
