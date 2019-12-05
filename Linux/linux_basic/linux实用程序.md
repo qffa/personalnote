@@ -26,3 +26,5 @@ generate password
 
 **fail2ban**
 protect service
+
+**pwgen**
