@@ -1,8 +1,9 @@
 # Personalnote
 record personal notes
 
-## Plagins
+## Atom Plugins
 
+use the following plugins to edit markdown
 
 - markdown-preview-enhanced
 - markdown-table-editor
