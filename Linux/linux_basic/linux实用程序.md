@@ -20,6 +20,7 @@ check tcp port
 
 **paping**
 check tcp port
+[download](http://www.updateweb.cn/softwares/paping_1.5.5_x86-64_linux.tar.gz)
 
 **mkpasswd**
 generate password
