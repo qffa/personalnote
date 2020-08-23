@@ -4,11 +4,11 @@ Drawing
 
 ```mermaid
 graph LR
-  workdir --git add--> stage
-  stage --git reset HEAD file--> workdir
-  stage --git commit--> repo
-  repo --git checkout --> stage
-  repo --git push--> remote_repo
-  remote_repo --git pull--> repo
-  repo --git checkout--> workdir
+  A((workdir)) --git add--> B((stage))
+  B --git reset HEAD file--> A
+  B --git commit--> C((repository))
+  C --git checkout --> B
+  C --git push--> D((remote_repo))
+  D --git pull--> C
+  C --git checkout--> A
 ```
