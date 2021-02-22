@@ -4,7 +4,7 @@ Drawing
 
 ```mermaid
 graph LR
-  A((workdir)) --git add--> B((stage))
+  A((workdir)) --git add--> B((stage/index))
   B --git reset HEAD file--> A
   B --git commit--> C((repository))
   C --git checkout --> B
